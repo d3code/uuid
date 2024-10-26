@@ -1,1 +1,1 @@
-module github.com/google/uuid
+module github.com/d3code/uuid
