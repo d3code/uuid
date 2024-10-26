@@ -3,14 +3,13 @@ The uuid package generates and inspects UUIDs based on
 [RFC 9562](https://datatracker.ietf.org/doc/html/rfc9562)
 and DCE 1.1: Authentication and Security Services. 
 
-This package is based on the github.com/pborman/uuid package (previously named
-code.google.com/p/go-uuid).  It differs from these earlier packages in that
-a UUID is a 16 byte array rather than a byte slice.  One loss due to this
-change is the ability to represent an invalid UUID (vs a NIL UUID).
+This package builds upon the [github.com/google/uuid](https://github.com/google/uuid) library but makes a key modification: it changes the response type of `UUID().Value()` from `string` to `[]byte`.
+
+This adjustment enables the use of UUIDs in databases that require a byte format rather than a string format, specifically serving as a replacement for the `uuid_to_bin` function in MySQL.
 
 ###### Install
 ```sh
-go get github.com/google/uuid
+go get github.com/d3code/uuid
 ```
 
 ###### Documentation 
@@ -18,4 +17,4 @@ go get github.com/google/uuid
 
 Full `go doc` style documentation for the package can be viewed online without
 installing this package by using the GoDoc site here: 
-https://pkg.go.dev/github.com/google/uuid
+https://pkg.go.dev/github.com/d3code/uuid
